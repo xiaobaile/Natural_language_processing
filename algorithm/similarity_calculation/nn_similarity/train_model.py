@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Time        : 2020/8/28 12:01
-# @Author      : tianyunzqs
-# @Description : 
-
 import os
 import sys
 import gzip
@@ -14,7 +9,8 @@ from collections import OrderedDict
 import jieba
 import numpy as np
 import tensorflow as tf
-from text_nn.auto_encoder import AutoEncoder
+from .auto_encoder import AutoEncoder
+
 
 tf.flags.DEFINE_float('learning_rate', 0.001, 'learning rate for training model')
 tf.flags.DEFINE_integer('epochs', 20, 'number of training epochs')

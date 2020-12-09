@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Time        : 2019/6/25 14:40
-# @Author      : tianyunzqs
-# @Description : 
-
-
 import os
 import re
 import codecs

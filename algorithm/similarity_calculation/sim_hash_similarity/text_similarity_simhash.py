@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Time        : 2019/6/25 15:58
-# @Author      : tianyunzqs
-# @Description : 
-
 import codecs
 import numpy as np
 import jieba.posseg as pseg

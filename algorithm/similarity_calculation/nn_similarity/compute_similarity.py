@@ -1,15 +1,10 @@
-# -*- coding: utf-8 -*-
-# @Time        : 2020/8/31 16:13
-# @Author      : tianyunzqs
-# @Description : 
-
 import gzip
 import json
 import pickle
 import jieba
 import numpy as np
 import tensorflow as tf
-from text_nn.auto_encoder import AutoEncoder
+from .auto_encoder import AutoEncoder
 
 
 def load_stopwords(path):

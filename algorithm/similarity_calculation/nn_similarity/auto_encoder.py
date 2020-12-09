@@ -1,16 +1,8 @@
-# -*- coding: utf-8 -*-
-# @Time        : 2020/8/28 10:20
-# @Author      : tianyunzqs
-# @Description : 
-
 import tensorflow as tf
 
 
 class AutoEncoder(object):
-    def __init__(self,
-                 embedding_size,
-                 num_hidden_layer,
-                 hidden_layers):
+    def __init__(self, embedding_size, num_hidden_layer, hidden_layers):
         assert num_hidden_layer == len(hidden_layers), 'num_hidden_layer not match hidden_layers'
         self.embedding_size = embedding_size
         self.num_hidden_layer = num_hidden_layer
@@ -42,6 +34,6 @@ class AutoEncoder(object):
     @staticmethod
     def encoder_or_decode(input_data, encoder_weights, encoder_biases):
         layer_output = [input_data]
-        for weight, biase in zip(encoder_weights, encoder_biases):
-            layer_output.append(tf.nn.sigmoid(tf.add(tf.matmul(layer_output[-1], weight), biase)))
+        for weight, bias in zip(encoder_weights, encoder_biases):
+            layer_output.append(tf.nn.sigmoid(tf.add(tf.matmul(layer_output[-1], weight), bias)))
         return layer_output[-1]
