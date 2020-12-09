@@ -2,8 +2,7 @@ import time
 
 
 def cal_time(fn):
-    """
-    test the function running time.
+    """ test the function running time.
     """
     def wrapper(*args, **kwargs):
         start_time = time.time()
