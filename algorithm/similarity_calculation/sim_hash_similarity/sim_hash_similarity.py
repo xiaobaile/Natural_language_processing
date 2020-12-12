@@ -3,11 +3,15 @@ import numpy as np
 import jieba.posseg as pseg
 
 
-def load_stopwords(path):
+def load_stopwords(path: str) -> set:
     return set([line.strip() for line in open(path, "r", encoding="utf-8").readlines() if line.strip()])
 
 
-stopwords = load_stopwords(path='stopwords.txt')
+"""
+集合和字典的区别？
+"""
+
+stopwords = load_stopwords(path='../stopwords/stopwords.txt')
 
 
 def string_hash(source):
@@ -26,7 +30,7 @@ def string_hash(source):
     return str(x)
 
 
-def load_idf(path):
+def load_idf(path: str) -> dict:
     words_idf = dict()
     with codecs.open(path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
@@ -43,8 +47,10 @@ def load_idf(path):
 words_idf = load_idf(path=r'idf.txt')
 
 
-def compute_tfidf(text):
+def compute_tfidf(text: str) -> dict:
+    """ 统计某个词出现的次数。"""
     words_freq = dict()
+    # 词性标注。
     words = pseg.lcut(text)
     for w in words:
         if w.word in stopwords:
@@ -55,7 +61,7 @@ def compute_tfidf(text):
             words_freq[w.word] += 1
 
     text_total_words = sum(list(words_freq.values()))
-
+    # 计算词频率
     words_tfidf = dict()
     for word, freq in words_freq.items():
         if word not in words_idf:
@@ -67,7 +73,7 @@ def compute_tfidf(text):
     return words_tfidf
 
 
-def get_keywords(text, topk):
+def get_keywords(text: str, topk: int) -> list:
     words_tfidf = compute_tfidf(text)
     words_tfidf_sorted = sorted(words_tfidf.items(), key=lambda x: x[1], reverse=True)
     return [item[0] for item in words_tfidf_sorted[:topk]]
