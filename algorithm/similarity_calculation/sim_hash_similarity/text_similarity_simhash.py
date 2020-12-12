@@ -8,7 +8,7 @@ def load_stopwords(path):
     return set([line.strip() for line in open(path, "r", encoding="utf-8").readlines() if line.strip()])
 
 
-stopwords = load_stopwords(path='stopwords.txt')
+stopwords = load_stopwords(path='../stopwords/stopwords.txt')
 
 
 def string_hash(source):

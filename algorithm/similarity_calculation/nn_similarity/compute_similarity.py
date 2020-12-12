@@ -4,7 +4,7 @@ import pickle
 import jieba
 import numpy as np
 import tensorflow as tf
-from .auto_encoder import AutoEncoder
+from auto_encoder import AutoEncoder
 
 
 def load_stopwords(path):
