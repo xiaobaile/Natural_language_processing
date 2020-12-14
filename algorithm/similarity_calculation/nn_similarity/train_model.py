@@ -9,7 +9,7 @@ from collections import OrderedDict
 import jieba
 import numpy as np
 import tensorflow as tf
-from .auto_encoder import AutoEncoder
+from auto_encoder import AutoEncoder
 
 
 tf.flags.DEFINE_float('learning_rate', 0.001, 'learning rate for training model')

@@ -7,10 +7,13 @@ class AutoEncoder(object):
         self.embedding_size = embedding_size
         self.num_hidden_layer = num_hidden_layer
         self.hidden_layers = hidden_layers
+
         self.input_x = tf.placeholder(tf.float32, [None, embedding_size])
+
         new_hidden_layers1 = [embedding_size] + hidden_layers + hidden_layers[::-1][1:]
         new_hidden_layers2 = hidden_layers + hidden_layers[::-1][1:] + [embedding_size]
         encoder_weights, encoder_biases, decoder_weights, decoder_biases = [], [], [], []
+
         for i, (hidden1, hidden2) in enumerate(zip(new_hidden_layers1, new_hidden_layers2)):
             if i < int(len(new_hidden_layers1) / 2.0):
                 encoder_weights.append(tf.Variable(tf.random_normal([hidden1, hidden2])))

@@ -5,5 +5,6 @@
 
 
 - Q:通过pip install 安装第三方包时经常会出现超时的现象
-- A:换个网络连接重新下载,
+- A:换个网络连接重新下载.
 - M:`pip --default-timeout=100 install jieba -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com`
+
